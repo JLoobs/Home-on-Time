@@ -37,7 +37,7 @@ export default function Home() {
                 width={100}
                 height={24}
                 priority
-                onClick = { () => endJourney({duration: '1800', number: '+447852249988', name: 'Rachel'}) }
+                onClick = { () => startJourney({duration: '1800', number: '+447740146380', name: 'Rachel'}) }
               />
             </a>
           </div>

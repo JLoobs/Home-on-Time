@@ -26,4 +26,15 @@ export default function handler(req, res) {
     .catch(error => console.error(error));
 
   res.status(200).json({ data: []})
+
+  setTimeout(function () {
+    client.messages
+  .create({
+    from: from,
+    to: to,
+    body: `Hi, ${durationMinutes} minutes have passed but ${req.body.name || 'your friend'} has not confirmed they are home.`
+  })
+  .then(message => console.log(`Message sent: ${message.sid}`))
+  .catch(error => console.error(error));
+  }, parseInt(req.body.duration))
 }
