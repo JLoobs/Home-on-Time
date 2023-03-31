@@ -1,10 +1,18 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
-
+import  Router  from 'next/router'
+import { useState } from 'react'
 
 export default function Home() {
-  return (
+    const [timer, setTimer] = useState(0)
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        Router.push({ pathname: "/journey_progress", query: { timer} });
+        console.log(timer);
+    }
+
+    return (
     <>
       <Head>
         <title>Safe on Time</title>
@@ -14,17 +22,19 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>Set your emergency contact</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>Name</label>
             <input type="text" placeholder="Enter your contact's name" />
             <label>Phone number</label>
-            <input type="tel" placeholder="07626766" required/>
+            <input type="tel" 
+            placeholder="07626766"
+            required/>
             <label>Duration</label>
-            <input type="min" placeholder="" required/>
-
-            <Link href="/journey_progress">
-            <button>Start Journey</button>
-            </Link>    
+            <input type="min" placeholder=""             
+            value={timer} 
+            onChange={(e) => setTimer(e.target.value)}
+            required/>
+            <button type="submit">Start Journey</button>
         </form>
 
       </main>

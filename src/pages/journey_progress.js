@@ -1,13 +1,22 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
-import CountdownTimer from '/CountdownTimer';
+import React from 'react';
+import { useTimer } from 'react-timer-hook';
 
-export default function Home() {
-    const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
-    const NOW_IN_MS = new Date().getTime();
-    const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
-
+export default function Home({ expiryTimestamp }) {
+    const {
+        seconds,
+        minutes,
+        hours,
+        days,
+        isRunning,
+        start,
+        pause,
+        resume,
+        restart,
+      } = useTimer({ expiryTimestamp});
+    
   return (
     <>
       <Head>
@@ -22,13 +31,11 @@ export default function Home() {
             <button>I'm home</button>
         </Link> 
 
-        <Timer />
-
+        <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
         <Link href="/">
             <button>SOS</button>
         </Link> 
 
-        <CountdownTimer targetDate={dateTimeAfterThreeDays} />
       </main>
     </>
   )
