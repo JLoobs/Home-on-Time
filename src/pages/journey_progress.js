@@ -31,7 +31,7 @@ export default function Home({ expiryTimestamp }) {
             <button>I'm home</button>
         </Link> 
 
-        <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+        <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
         <Link href="/">
             <button>SOS</button>
         </Link> 

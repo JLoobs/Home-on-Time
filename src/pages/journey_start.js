@@ -29,7 +29,7 @@ export default function Home() {
             <input type="tel" 
             placeholder="07626766"
             required/>
-            <label>Duration</label>
+            <label>Duration (in minutes)</label>
             <input type="min" placeholder=""             
             value={timer} 
             onChange={(e) => setTimer(e.target.value)}
