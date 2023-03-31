@@ -1,5 +1,4 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { format, parseISO } from 'date-fns';
 
 export default function handler(req, res) {
   console.log(req.body);
@@ -14,7 +13,7 @@ export default function handler(req, res) {
     .create({
       from: from,
       to: to,
-      body: `${req.body.name || 'your friend'} has triggered an SOS message while on the way home.`
+      body: `${req.body.name || 'your friend'} is home safe!`
     })
     .then(message => console.log(`Message sent: ${message.sid}`))
     .catch(error => console.error(error));

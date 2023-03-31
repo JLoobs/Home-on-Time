@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { startJourney } from '@/lib/start-journey'
+import { sosMessage } from '@/lib/sos-message'
+import { homeSafeMessage } from '@/lib/home-safe-message'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,7 +37,7 @@ export default function Home() {
                 width={100}
                 height={24}
                 priority
-                onClick = { () => startJourney({duration: '1800', number: '+447852249988', name: 'Rachel'}) }
+                onClick = { () => endJourney({duration: '1800', number: '+447852249988', name: 'Rachel'}) }
               />
             </a>
           </div>
@@ -49,6 +51,7 @@ export default function Home() {
             width={180}
             height={37}
             priority
+            onClick = { () => sosMessage({number: '+447852249988', name: 'Rachel'}) }
           />
           <div className={styles.thirteen}>
             <Image
@@ -57,6 +60,7 @@ export default function Home() {
               width={40}
               height={31}
               priority
+              onClick = { () => homeSafeMessage({number: '+447852249988', name: 'Rachel'}) }
             />
           </div>
         </div>

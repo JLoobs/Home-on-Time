@@ -16,16 +16,14 @@ export default function handler(req, res) {
 
   console.log({from, to, now, durationMinutes});
   
-  // client.messages
-  //   .create({
-  //     from: from,
-  //     to: to,
-  //     body: `Hi. ${req.body.name || 'your friend'} is on their way home. They should arrive in ${durationMinutes} minutes.`
-  //   })
-  //   .then(message => console.log(`Message sent: ${message.sid}`))
-  //   .catch(error => console.error(error));
-
-    // schedule message here 
+  client.messages
+    .create({
+      from: from,
+      to: to,
+      body: `Hi. ${req.body.name || 'your friend'} is on their way home. They should arrive in ${durationMinutes} minutes.`
+    })
+    .then(message => console.log(`Message sent: ${message.sid}`))
+    .catch(error => console.error(error));
 
   res.status(200).json({ data: []})
 }
