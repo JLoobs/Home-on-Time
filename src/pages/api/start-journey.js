@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 export default function handler(req, res) {
   console.log(req.body);
@@ -11,16 +11,16 @@ export default function handler(req, res) {
   const to = req.body.number; // need to pass in the number to the frontend (of the friend)
 
   const now = Date.now();
+  
+  const durationMinutes = parseInt(req.body.duration) / 60;
 
-  const time = format(req.body.duration + now, 'HH:mm:ss');
-
-  console.log(from, to, now, time);
+  console.log({from, to, now, durationMinutes});
   
   // client.messages
   //   .create({
   //     from: from,
   //     to: to,
-  //     body: `Hi. ${req.body.name || 'your friend'} is on their way home. They should arrive at ${time}.`
+  //     body: `Hi. ${req.body.name || 'your friend'} is on their way home. They should arrive in ${durationMinutes} minutes.`
   //   })
   //   .then(message => console.log(`Message sent: ${message.sid}`))
   //   .catch(error => console.error(error));

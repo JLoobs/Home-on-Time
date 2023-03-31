@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import { startJourney } from '@/lib/start-journey'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -34,6 +35,7 @@ export default function Home() {
                 width={100}
                 height={24}
                 priority
+                onClick = { () => startJourney({duration: '1800', number: '+447852249988', name: 'Rachel'}) }
               />
             </a>
           </div>
