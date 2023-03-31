@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -16,7 +15,9 @@ export default function Home() {
         <h1>Safe on Time</h1>
         <p>So your friend knows that you arrived home safely.</p>
         <div>
-          <button >Go</button>
+          <Link href="/journey_start">
+          <button>Start my Journey</button>
+          </Link>
         </div>
 
       </main>
