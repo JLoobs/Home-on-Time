@@ -2,25 +2,24 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import React from 'react';
+import { useRouter } from 'next/router';
 import { useTimer } from 'react-timer-hook';
 
-export default function Home({ expiryTimestamp }) {
+export default function Home() {
+    const router = useRouter();
+    const { duration } = router.query;
+    const time = new Date();
+    time.setSeconds(time.getSeconds() + duration * 60)
     const {
         seconds,
         minutes,
         hours,
-        days,
-        isRunning,
-        start,
-        pause,
-        resume,
-        restart,
-      } = useTimer({ expiryTimestamp});
+      } = useTimer({ expiryTimestamp: time});
     
   return (
     <>
       <Head>
-        <title>Safe on Time</title>
+        <title>Home on Time</title>
         <meta name="description" content="An app to make sure women have arrived home on time." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

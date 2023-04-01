@@ -5,11 +5,10 @@ import  Router  from 'next/router'
 import { useState } from 'react'
 
 export default function Home() {
-    const [timer, setTimer] = useState(0)
+    const [duration, setDuration] = useState(0)
     const handleSubmit = (event) => {
         event.preventDefault();
-        Router.push({ pathname: "/journey_progress", query: { timer} });
-        console.log(timer);
+        Router.push({ pathname: "/journey_progress", query: { duration} });
     }
 
     return (
@@ -31,10 +30,10 @@ export default function Home() {
             required/>
             <label>Duration (in minutes)</label>
             <input type="min" placeholder=""             
-            value={timer} 
-            onChange={(e) => setTimer(e.target.value)}
+            value={duration} 
+            onChange={(e) => setDuration(e.target.value)}
             required/>
-            <button type="submit">Start Journey</button>
+            <button type="submit">Submit</button>
         </form>
 
       </main>
