@@ -1,20 +1,28 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useTimer } from 'react-timer-hook';
+import { startJourney } from '@/lib/start-journey';
 
 export default function Home() {
     const router = useRouter();
-    const { duration } = router.query;
+    const { name, phoneNumber, duration } = router.query;
+    const durationInSeconds = duration * 60;
+
     const time = new Date();
-    time.setSeconds(time.getSeconds() + duration * 60)
+    time.setSeconds(time.getSeconds() + durationInSeconds)
+
     const {
         seconds,
         minutes,
         hours,
       } = useTimer({ expiryTimestamp: time});
+
+    useEffect(() => {
+        startJourney({duration: durationInSeconds, number: phoneNumber, name: name});
+    }, [])
     
   return (
     <>
