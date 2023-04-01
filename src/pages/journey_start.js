@@ -7,7 +7,7 @@ import { useState } from 'react'
 export default function Home() {
     const [duration, setDuration] = useState(0);
     const [name, setName] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState('+447594113444');
+    const [phoneNumber, setPhoneNumber] = useState('+15005550006');
 
     const handleSubmit = (event) => {
         event.preventDefault();
