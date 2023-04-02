@@ -1,49 +1,44 @@
-import Head from 'next/head'
 import Link from 'next/link'
-import styles from '@/styles/Home.module.css'
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from "next/router";
 import { useTimer } from 'react-timer-hook';
 import { startJourney } from '@/lib/start-journey';
+import { homeSafeMessage } from '@/lib/home-safe-message';
+import { sosMessage } from '@/lib/sos-message';
 
-export default function Home() {
-    const router = useRouter();
-    const { name, phoneNumber, duration } = router.query;
-    const durationInSeconds = duration * 60;
+export default function JourneyProgress() {
+  const router = useRouter();
+  const { name, phoneNumber, duration } = router.query;
+  const durationInSeconds = duration * 60;
 
-    const time = new Date();
-    time.setSeconds(time.getSeconds() + durationInSeconds)
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + durationInSeconds);
 
-    const {
-        seconds,
-        minutes,
-        hours,
-      } = useTimer({ expiryTimestamp: time});
+  const {
+    seconds,
+    minutes,
+    hours,
+  } = useTimer({ expiryTimestamp: time, onExpire: () => Router.push({ pathname: "/journey_end", query: { name, phoneNumber, duration } }) });
 
-    useEffect(() => {
-        startJourney({duration: durationInSeconds, number: phoneNumber, name: name});
-    }, [])
-    
+  useEffect(() => {
+    startJourney({ duration: durationInSeconds, number: phoneNumber, name: name });
+  }, [])
+
   return (
     <>
-      <Head>
-        <title>Home on Time</title>
-        <meta name="description" content="An app to make sure women have arrived home on time." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <h1>Journey in progress</h1>
-        <Link href="/">
-            <button>I'm home</button>
-        </Link> 
-
+      <h1>Journey in progress</h1>
+      <Link href="/journey_start" className="back-btn">Go Back</Link>
+      <Link href="/"
+        className="home-btn"
+        onClick={() => homeSafeMessage({ number: phoneNumber, name: name })}>I'm home
+      </Link>
+      <div className="timer">
         <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
-        <Link href="/">
-            <button>SOS</button>
-        </Link> 
-
-      </main>
+      </div>
+      <Link href="/"
+        className="sos-btn"
+        onClick={() => sosMessage({ number: phoneNumber, name: name })}>SOS
+      </Link>
     </>
   )
 }

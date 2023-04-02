@@ -36,5 +36,5 @@ export default function handler(req, res) {
   })
   .then(message => console.log(`Message sent: ${message.sid}`))
   .catch(error => console.error(error));
-  }, parseInt(req.body.duration))
+  }, parseInt(req.body.duration) * 1000)
 }
