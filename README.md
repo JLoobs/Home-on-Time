@@ -1,38 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Home on Time App
 
-## Getting Started
+![alt text](https://github.com/JLoobs/PowerHackApp-/blob/main/Screenshot%202023-07-22%20at%2000.34.45.png?raw=true)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Description
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![alt text](https://github.com/JLoobs/PowerHackApp-/blob/main/Screenshot%202023-07-22%20at%2000.34.54.png?raw=true)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Home on Time is a powerful safety app developed during the Power Hack, organized by SheCanCode at Dojo, with a primary focus on improving women's safety. The app provides users with a reliable way to notify their chosen contact when they expect to arrive home safely, based on their estimated time of arrival. Moreover, if the user fails to reach their destination within the specified time, Home on Time will automatically trigger an SOS message in the form of a text to the selected contact, ensuring that help is provided promptly.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This project was created through the collaborative efforts of a skilled and diverse group of developers, including [Rachel Newby](https://github.com/rachelnewby), [Sonia Botsarova](https://github.com/sonianb), [Amy Kuner](https://github.com/amykuner), [Justyna Luberda](https://github.com/JLoobs) and [Amina Ba](https://github.com/xamiba). Our cohesive team utilized a mix of full-stack and front-end development expertise to craft a solution that addresses a significant societal concern.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![alt text](https://github.com/JLoobs/PowerHackApp-/blob/main/Screenshot%202023-07-22%20at%2000.35.11.png?raw=true)
 
-## Learn More
+- **Estimated Time of Arrival (ETA)**: Users can set their estimated time of arrival to inform their chosen contact when to expect them home.
 
-To learn more about Next.js, take a look at the following resources:
+- **Contact Notifications via Text**: The app automatically sends text notifications to the selected contact when the user arrives home safely.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **SOS Message**: In case the user doesn't reach their destination within the estimated time, Home on Time triggers an SOS message in the form of a text to the designated contact.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Twilio API Integration**: The app leverages the Twilio API to ensure seamless and reliable communication with emergency contacts via text messages.
 
-## Deploy on Vercel
+- **Timer API Integration**: The Timer API is utilized to monitor the user's progress and detect any delays in their estimated arrival.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Tech Stack
+
+Home on Time is built using the following technologies:
+
+- Next.js
+- Node.js
+- React
+- JavaScript
+- HTML
+
+## Hackathon Experience
+
+Participating in the Power Hack was an exceptional and rewarding journey. Not only did our team emerge victorious 🙌🏽, but we were also given a unique opportunity to contribute to a critical social cause and make a tangible impact on the lives of others. Collaborating with highly skilled full-stack and front-end developers, and receiving guidance from successful entrepreneur mentors, enriched our understanding of app development.
+
+Thank you for your interest in Home on Time! 🚀
